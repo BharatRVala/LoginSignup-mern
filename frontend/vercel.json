@@ -52,7 +52,6 @@
     }
   },
   "regions": ["sfo1", "iad1"],
-  "functionFailoverRegion": "iad1",
   "crons": [
     {
       "path": "/api/daily-cron",
