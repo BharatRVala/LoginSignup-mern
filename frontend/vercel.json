@@ -1,8 +1,62 @@
 {
-    "rewrites":[
+  "buildCommand": "next build",
+  "devCommand": "next dev",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "outputDirectory": "out",
+  "public": "public",
+  "images": {
+    "domains": ["example.com"],
+    "sizes": [320, 420, 768, 1024, 1200]
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
         {
-            "source":"/(.*)",
-            "description":"/index.html"
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
         }
-    ]
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/old-path",
+      "destination": "/new-path"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/old-page",
+      "destination": "/new-page",
+      "permanent": true
+    }
+  ],
+  "functions": {
+    "api/**/*.js": {
+      "memory": 1024,
+      "maxDuration": 10
+    }
+  },
+  "regions": ["sfo1", "iad1"],
+  "functionFailoverRegion": "iad1",
+  "crons": [
+    {
+      "path": "/api/daily-cron",
+      "schedule": "0 0 * * *"
+    }
+  ]
 }
