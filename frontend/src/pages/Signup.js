@@ -29,7 +29,7 @@ function Signup() {
             return handleError('name, email, password are requir');
         }
         try {
-            const url = "http://localhost:8080/auth/signup";
+            const url = "https://login-signup-mern-api-wheat.vercel.app/auth/signup";
             const response = await fetch(url, {
                 method: "POST",
                 headers: {
