@@ -50,12 +50,10 @@
       "maxDuration": 10
     }
   },
-  "regions": ["sfo1", "iad1"],
   "crons": [
     {
       "path": "/api/daily-cron",
       "schedule": "0 0 * * *"
     }
-  ],
-  "public": true
+  ]
 }
