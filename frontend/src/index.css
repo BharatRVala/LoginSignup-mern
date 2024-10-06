@@ -61,7 +61,7 @@ box-shadow: 8px 8px 24px 0px rgba(66,68,90,1);
 }
 
 button{
-  background-color: rgb(48, 215, 54);
+  background-color: rgb(194, 92, 223);
   border: none;
   font-size: 20px;
   color: #FFF;
@@ -69,4 +69,85 @@ button{
   padding: 10px;
   cursor: pointer;
   margin: 10px 0px;
+}
+
+
+/* Circular Spinner */
+.loading-spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #007bff;  /* Customize the spinner color */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-top: 10px;
+  
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Bouncing Dots */
+.loading-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.loading-dots div {
+  width: 8px;
+  height: 8px;
+  background-color: #007bff;  /* Customize the color */
+  border-radius: 50%;
+  margin: 0 4px;
+  animation: bounce 0.6s infinite alternate;
+}
+
+.loading-dots div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loading-dots div:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  to {
+      transform: translateY(-10px);
+  }
+}
+
+/* Fading Bars */
+.loading-bars {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.loading-bars div {
+  width: 4px;
+  height: 20px;
+  background-color: #007bff;  /* Customize the color */
+  margin: 0 2px;
+  animation: fade 1s infinite ease-in-out;
+}
+
+.loading-bars div:nth-child(1) { animation-delay: -0.4s; }
+.loading-bars div:nth-child(2) { animation-delay: -0.3s; }
+.loading-bars div:nth-child(3) { animation-delay: -0.2s; }
+.loading-bars div:nth-child(4) { animation-delay: -0.1s; }
+
+@keyframes fade {
+  0%, 40%, 100% {
+      opacity: 0.3;
+      height: 20px;
+  }
+  20% {
+      opacity: 1;
+      height: 30px;
+  }
 }
